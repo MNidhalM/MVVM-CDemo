@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class HomeViewController: Loader {
+final class HomeViewController: Loader {
     
     // MARK: - Properties
     public var viewModel: HomeViewModel!
@@ -28,14 +28,14 @@ class HomeViewController: Loader {
     }
     
     // MARK: - Outlets
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var userNameView: IDView!
-    @IBOutlet weak var noMoreDataLabel: UILabel!
-    @IBOutlet weak var footerView: UIView!
-    @IBOutlet weak var loadMoreDataView: UIView!
-    @IBOutlet weak var noMoreDataView: UIView!
+    @IBOutlet private (set) weak var logoutButton: UIButton!
+    @IBOutlet private (set) weak var tableView: UITableView!
+    @IBOutlet private (set) weak var titleLabel: UILabel!
+    @IBOutlet private (set) weak var userNameView: IDView!
+    @IBOutlet private (set) weak var noMoreDataLabel: UILabel!
+    @IBOutlet private (set) weak var footerView: UIView!
+    @IBOutlet private (set) weak var loadMoreDataView: UIView!
+    @IBOutlet private (set) weak var noMoreDataView: UIView!
     
     @IBAction func logoutTapped(_ sender: UIButton) {
         viewModel.logoutTapped()
@@ -53,15 +53,15 @@ class HomeViewController: Loader {
 }
 
 // MARK: - Init Helpers
-extension HomeViewController {
-    private func setupUI() {
+private extension HomeViewController {
+    func setupUI() {
         logoutButton.addTarget(self, action: #selector(logoutTapped(_:)), for: .touchUpInside)
         
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.refreshControl = refreshControl
     }
     
-    private func setupObservers() {
+    func setupObservers() {
         viewModel.$finished.dropFirst().receive(on: DispatchQueue.main)
             .sink { [weak self] completedWithError in
                 guard let self = self else { return }
@@ -78,7 +78,7 @@ extension HomeViewController {
             }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SneakerTableViewCell.reuseIdentifier, for: indexPath) as? SneakerTableViewCell else { return UITableViewCell() }
             self.footerView.isHidden = false
-            cell.configure(viewModel: SneakerTableViewCellViewModel(sneaker: object))
+            cell.viewModel = SneakerTableViewCellViewModel(sneaker: object)
             return cell
         })
         
@@ -100,7 +100,7 @@ extension HomeViewController {
         
     }
     
-    private func registerCells() {
+    func registerCells() {
         let cell = UINib(nibName: SneakerTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: SneakerTableViewCell.reuseIdentifier)
         
@@ -111,17 +111,17 @@ extension HomeViewController {
 }
 
 // MARK: -  Helpers
-extension HomeViewController {
-    private func showLoadMoreDataView(_ show: Bool) {
+private extension HomeViewController {
+    func showLoadMoreDataView(_ show: Bool) {
         loadMoreDataView.isHidden = show ? false : true
         noMoreDataView.isHidden = show ? true : false
     }
     
-    private func showLoadMoreDataView() {
+    func showLoadMoreDataView() {
         showLoadMoreDataView(true)
     }
     
-    private func showNoMoreDataView() {
+    func showNoMoreDataView() {
         showLoadMoreDataView(false)
     }
     

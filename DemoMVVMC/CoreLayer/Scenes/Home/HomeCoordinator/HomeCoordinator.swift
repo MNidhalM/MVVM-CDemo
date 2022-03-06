@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 
-class HomeCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
     
     // MARK: - Properties
     let rootViewController: UINavigationController

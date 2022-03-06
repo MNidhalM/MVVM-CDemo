@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  DemoMVVMC
+//
+//  Created by mac on 3/3/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+//SNEAKER_API_KEY = $(SNEAKER_API_KEY)

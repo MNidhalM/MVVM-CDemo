@@ -8,7 +8,7 @@
 import UIKit
 
 
-class WelcomeCoordinator: Coordinator {
+final class WelcomeCoordinator: Coordinator {
   
     // MARK: - Properties
     let rootViewController: UINavigationController

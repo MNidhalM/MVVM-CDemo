@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SneakerTableViewCellViewModel {
+final class SneakerTableViewCellViewModel {
     let name: String
     let brand: String
     let image: String?

@@ -8,7 +8,7 @@
 import UIKit
 
 
-class WelcomeViewModel {
+final class WelcomeViewModel {
     // MARK: - Properties
     private var userViewModel: UserViewModel
     weak var coordinatorDelegate : WelcomeViewModelCoordinatorDelegate?

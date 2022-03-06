@@ -7,20 +7,19 @@
 
 import UIKit
 
-class SneakerTableViewCell: UITableViewCell {
+final class SneakerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sneakerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     
-    public var viewModel: SneakerTableViewCellViewModel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    public var viewModel: SneakerTableViewCellViewModel! {
+        didSet {
+            configure()
+        }
     }
     
-    func configure(viewModel: SneakerTableViewCellViewModel) {
-        self.viewModel = viewModel
+    private func configure() {
         brandLabel.text = viewModel.brand
         nameLabel.text = viewModel.name
     }

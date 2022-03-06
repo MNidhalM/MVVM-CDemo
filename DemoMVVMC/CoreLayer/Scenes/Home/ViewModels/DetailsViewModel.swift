@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DetailsViewModel {
+final class DetailsViewModel {
     public weak var coordinatorDelegate : Coordinator?
 
 }

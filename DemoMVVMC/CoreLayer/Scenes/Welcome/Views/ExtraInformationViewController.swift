@@ -8,19 +8,19 @@
 import UIKit
 import Combine
 
-class ExtraInformationViewController: UIViewController {
+final class ExtraInformationViewController: UIViewController {
     
     // MARK: - Properties
     public var viewModel: ExtraViewModel!
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Outlets
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var femaleButton: UIButton!
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet private (set) weak var saveButton: UIButton!
+    @IBOutlet private (set) weak var genderLabel: UILabel!
+    @IBOutlet private (set) weak var maleButton: UIButton!
+    @IBOutlet private (set) weak var femaleButton: UIButton!
+    @IBOutlet private (set) weak var ageTextField: UITextField!
+    @IBOutlet private (set) weak var ageLabel: UILabel!
         
     @IBAction func saveTapped(_ sender: UIButton) {
         viewModel.saveTapped(from: self)
@@ -37,15 +37,15 @@ class ExtraInformationViewController: UIViewController {
 }
 
 // MARK: - Init Helpers
-extension ExtraInformationViewController {
-    private func setupUI() {
+private extension ExtraInformationViewController {
+    func setupUI() {
         saveButton.addTarget(self, action: #selector(saveTapped(_:)), for: .touchUpInside)
         ageTextField.placeholder = "Age must be under 100"
         updateMaleButton(isSelected: false)
         updateFemaleButton(isSelected: false)
     }
     
-    private func setupSubscribers() {
+    func setupSubscribers() {
         ageTextField.textPublisher.receive(on: RunLoop.main).sink { [weak self] value in
             guard let self = self else { return }
             self.viewModel.age = value
@@ -67,7 +67,7 @@ extension ExtraInformationViewController {
 
     }
 
-    private func setupObservers() {
+    func setupObservers() {
         viewModel.$age.receive(on: RunLoop.main).sink { [weak self] value in
             guard let self = self else { return }
             self.modeButton()
@@ -79,24 +79,24 @@ extension ExtraInformationViewController {
         }.store(in: &cancellables)
 
     }
-    private func setupDelegates() {
+    func setupDelegates() {
         ageTextField.delegate = self
     }
 }
 
 // MARK: - Helpers
-extension ExtraInformationViewController {
-    private func updateMaleButton(isSelected: Bool) {
+private extension ExtraInformationViewController {
+    func updateMaleButton(isSelected: Bool) {
         maleButton.backgroundColor = isSelected ? UIColor.blueColor : UIColor.white
         maleButton.setTitleColor(isSelected ? UIColor.white : UIColor.blueColor, for: .normal)
     }
     
-    private func updateFemaleButton(isSelected: Bool) {
+    func updateFemaleButton(isSelected: Bool) {
         femaleButton.backgroundColor = isSelected ? UIColor.pinkColor : UIColor.white
         femaleButton.setTitleColor(isSelected ? UIColor.white : UIColor.pinkColor, for: .normal)
     }
 
-    private func modeButton() {
+    func modeButton() {
         saveButton.backgroundColor = viewModel.checkValidData() ? UIColor.primaryColor : UIColor.white
         saveButton.setTitleColor((viewModel.checkValidData() ? UIColor.white : UIColor.primaryColor), for: .normal)
         saveButton.isEnabled = viewModel.checkValidData()
@@ -105,7 +105,6 @@ extension ExtraInformationViewController {
 
 // MARK: - UITextFieldDelegate
 extension ExtraInformationViewController: UITextFieldDelegate {
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IDView: NibLoadingView {
+final class IDView: NibLoadingView {
     private var viewModel: UserViewModel?
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!

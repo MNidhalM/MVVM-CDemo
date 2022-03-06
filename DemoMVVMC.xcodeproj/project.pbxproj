@@ -56,6 +56,7 @@
 		04990CD427CC283500258411 /* ExtraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04990CD327CC283500258411 /* ExtraViewModel.swift */; };
 		04990CD627CC284100258411 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04990CD527CC284100258411 /* UserViewModel.swift */; };
 		04990CD827CC284D00258411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04990CD727CC284D00258411 /* User.swift */; };
+		04D0B04827D0FC2C0041F60F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B04727D0FC2C0041F60F /* Config.xcconfig */; };
 		873BDCDB4DCFECB6248038F2 /* Pods_DemoMVVMC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EBAE6AF54E3E99CD5A5FAF /* Pods_DemoMVVMC.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		04990CD327CC283500258411 /* ExtraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraViewModel.swift; sourceTree = "<group>"; };
 		04990CD527CC284100258411 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		04990CD727CC284D00258411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		04D0B04727D0FC2C0041F60F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1A3C7D089A4D3603748D2C1D /* Pods-DemoMVVMC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoMVVMC.release.xcconfig"; path = "Target Support Files/Pods-DemoMVVMC/Pods-DemoMVVMC.release.xcconfig"; sourceTree = "<group>"; };
 		E0EBAE6AF54E3E99CD5A5FAF /* Pods_DemoMVVMC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoMVVMC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5CB95F2EDA97D5D5BA6F5E3 /* Pods-DemoMVVMC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoMVVMC.debug.xcconfig"; path = "Target Support Files/Pods-DemoMVVMC/Pods-DemoMVVMC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				04627D9827C98F2C00BDF964 /* Info.plist */,
 				04627D8A27C98F2A00BDF964 /* AppDelegate.swift */,
+				04D0B04727D0FC2C0041F60F /* Config.xcconfig */,
 				04990CCB27CBB0D800258411 /* AppSettings.swift */,
 			);
 			path = Configuration;
@@ -359,8 +362,8 @@
 		0463BEB827CD94400024D792 /* EmptyCell */ = {
 			isa = PBXGroup;
 			children = (
-				0463BEB927CD94670024D792 /* EmptyTableViewCell.swift */,
 				0463BEBA27CD94670024D792 /* EmptyTableViewCell.xib */,
+				0463BEB927CD94670024D792 /* EmptyTableViewCell.swift */,
 			);
 			path = EmptyCell;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				04627DA527C9905000BDF964 /* Welcome.storyboard in Resources */,
 				04627D9727C98F2C00BDF964 /* LaunchScreen.storyboard in Resources */,
 				0463BEA627CD4E870024D792 /* SneakerTableViewCell.xib in Resources */,
+				04D0B04827D0FC2C0041F60F /* Config.xcconfig in Resources */,
 				0463BEAF27CD7A5E0024D792 /* IDView.xib in Resources */,
 				04627D9427C98F2C00BDF964 /* Assets.xcassets in Resources */,
 				04627D9227C98F2A00BDF964 /* Home.storyboard in Resources */,

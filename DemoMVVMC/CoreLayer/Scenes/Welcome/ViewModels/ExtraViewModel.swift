@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExtraViewModel {
+final class ExtraViewModel {
     // MARK: - Properties
     let validAge = 1...100
     private var userViewModel: UserViewModel

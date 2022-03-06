@@ -10,7 +10,7 @@ import Combine
 
 class ItemTableViewDiffableDataSource: UITableViewDiffableDataSource<String?, Sneaker> {}
 
-class HomeViewModel {
+final class HomeViewModel {
     private var userViewModel: UserViewModel
     private let sneakerStore: SneakerStore
     public weak var coordinatorDelegate : HomeViewModelCoordinatorDelegate?
